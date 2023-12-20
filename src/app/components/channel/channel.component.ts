@@ -18,13 +18,19 @@ export class ChannelComponent {
 
   Channels!: ChannelDTO[];
 
-  constructor(public channel:ChannelService
+  constructor(private channel:ChannelService
     // private fetcher:FetcherService
     ) {}
 
   ngOnInit() {
     this.channel.getAllChannels().subscribe((data) => {
       this.Channels = data;
+    });
+  }
+
+  deleteChannelC(channelId: number) {
+    this.channel.deleteChannel(channelId).subscribe((data) => {
+      console.log(data);
     });
   }
 
