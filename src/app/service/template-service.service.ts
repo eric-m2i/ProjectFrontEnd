@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user/user.model';
-import { Message } from '../model/message/message.model';
+
+import { MessageDTO } from '../model/message/messageDTO.model';
+import { Channel } from '../model/channel/channel.model';
+
 
 
 
