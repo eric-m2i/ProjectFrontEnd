@@ -1,0 +1,11 @@
+.contentContainer{
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgba(3, 3, 3, 0.05);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
