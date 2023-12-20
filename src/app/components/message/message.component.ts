@@ -1,4 +1,3 @@
-import { Message } from '../../model/message.model';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TemplateServiceService } from '../../service/template-service.service';
