@@ -18,8 +18,8 @@ export class ConnexionComponent {
 
   inputUser: UserDTO = {
     id: 0,
-    nom: 'ROBIN',
-    prenom: 'Eric',
+    nom: 'mat',
+    prenom: 'mat',
     email: '',
     pseudo: '',
     messages: []

@@ -1,11 +1,17 @@
 <p>channel works!</p>
 <!-- <button (click)="onClick()">Channels</button> -->
-<div *ngFor="let c of Channels">
-    <div class="container">
-        <p>{{c.id}}</p>
-        <p>{{c.name}}</p>
-        <p>{{c.description}}</p>
-        <button (click)="deleteChannelC(c.id)"></button>
+<div class="channel">
+    <div *ngFor="let c of Channels">
+        <div class="container">
+            <div>
+                <p>{{c.name}}</p>
+                <p>{{c.description}}</p>
+            </div>
+            <div class="buttons">
+                <button id="editButton">?E?</button>
+                <button id="deleteButton"(click)="deleteChannelC(c.id)">delete</button>
+            </div>
+        </div>
     </div>
-
+    <app-add-channel></app-add-channel>
 </div>
