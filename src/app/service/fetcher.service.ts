@@ -1,4 +1,7 @@
-import { Channel } from '../model/channel.model';
+
+import { ChannelDTO } from '../model/channel/channelDTO.model';
+import { MessageDTO } from '../model/message/messageDTO.model';
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -7,20 +10,42 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FetcherService {
-  listChannel: Channel[]=[];
+
+  listChannel: ChannelDTO[]=[];
+  listMessage: MessageDTO[]=[];
+
 
   constructor(private http: HttpClient) {
     this.loadChannels();
   }
-
-getChannels(){
-  return this.http.get('http://localhost:8080/api/channels');
-}
-
-loadChannels(){
-  this.http.get<Channel[]>('http://localhost:8080/api/channels').subscribe(
-  (data)=>{this.listChannel=data;
-     console.log(data)});
+  ngOnInit(){
+    this.loadChannels();
+    this.loadMessages();
+    console.log(this.listChannel);
+    console.log(this.listMessage);
   }
+
+  getChannels() {
+    return this.http.get('http://localhost:8080/api/channels');
+  }
+
+  loadChannels() {
+    this.http.get<ChannelDTO[]>('http://localhost:8080/api/channels').subscribe(
+      (data) => {
+        this.listChannel = data;
+        console.log(data)
+      });
+  }
+
+  getMessages(){
+    return this.http.get('http://localhost:8080/api/channels/1/messages');
+  }
+  
+  loadMessages(){
+    this.http.get<MessageDTO[]>('http://localhost:8080/api/channels/1/messages').subscribe(
+    (data)=>{
+      this.listMessage=data;
+       console.log(data)});
+    }
 
 }

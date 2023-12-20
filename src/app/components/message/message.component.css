@@ -1,6 +1,8 @@
 .container{
+    width: 500px;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     gap: 10px;
     margin: 10px;
     max-width: 30vw;
@@ -19,3 +21,5 @@
 .container:hover{
   background-color: rgba(0,255,0,0.5);
 }
+
+

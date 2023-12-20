@@ -1,5 +1,4 @@
-export interface Channel{
-    id: number;
+export interface ChannelPostDTO {
     name: string;
     description: string;
   }

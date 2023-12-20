@@ -1,7 +1,7 @@
-import { Message } from '../../model/message.model';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TemplateServiceService } from '../../service/template-service.service';
+import { FetcherService } from '../../service/fetcher.service';
 
 @Component({
   selector: 'app-message',
@@ -10,7 +10,16 @@ import { TemplateServiceService } from '../../service/template-service.service';
   templateUrl: './message.component.html',
   styleUrl: './message.component.css'
 })
-export class MessageComponent {
 
-  constructor(public message:TemplateServiceService) {}
+
+export class MessageComponent {
+  ngOnInit(){
+    this.message.loadChannels();
+    this.message.loadMessages();
+    console.log(this.message.listChannel);
+    console.log(this.message.listMessage);
+  }
+  constructor(public message:FetcherService) {}
+
+
 }
