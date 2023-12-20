@@ -1,7 +1,7 @@
 import { Message } from "../message/message.model";
 
 export interface UserDTO {
-    id?: number;
+    id: number;
     nom: string;
     prenom: string;
     email: string;
