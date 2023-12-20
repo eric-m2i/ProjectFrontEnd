@@ -1,6 +1,6 @@
 
 import { ChannelDTO } from '../model/channel/channelDTO.model';
-import { Message } from '../model/message/message.model';
+import { MessageDTO } from '../model/message/messageDTO.model';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,11 +12,17 @@ import { Injectable } from '@angular/core';
 export class FetcherService {
 
   listChannel: ChannelDTO[]=[];
-  listMessage: Message[]=[];
+  listMessage: MessageDTO[]=[];
 
 
   constructor(private http: HttpClient) {
     this.loadChannels();
+  }
+  ngOnInit(){
+    this.loadChannels();
+    this.loadMessages();
+    console.log(this.listChannel);
+    console.log(this.listMessage);
   }
 
   getChannels() {
@@ -36,8 +42,9 @@ export class FetcherService {
   }
   
   loadMessages(){
-    this.http.get<ChannelDTO[]>('http://localhost:8080/api/channels').subscribe(
-    (data)=>{this.listChannel=data;
+    this.http.get<MessageDTO[]>('http://localhost:8080/api/channels/1/messages').subscribe(
+    (data)=>{
+      this.listMessage=data;
        console.log(data)});
     }
 
