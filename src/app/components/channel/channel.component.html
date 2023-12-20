@@ -1,0 +1,11 @@
+<p>channel works!</p>
+<!-- <button (click)="onClick()">Channels</button> -->
+<div *ngFor="let c of this.channel.listChannel">
+    <div class="container">
+        <p>{{c.id}}</p>
+        <p>{{c.name}}</p>
+        <p>{{c.description}}</p>
+       
+    </div>
+    
+</div>
