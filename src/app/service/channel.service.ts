@@ -30,7 +30,6 @@ export class ChannelService {
   }
 
   patchChannel(channelId: number, channelPach: ChannelPostDTO): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.patch<any>(`${this.baseUrl}/${channelId}`, channelPach);
   }
 
