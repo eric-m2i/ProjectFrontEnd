@@ -5,6 +5,7 @@ import { TemplateServiceService } from '../../service/template-service.service';
 import { FetcherService } from '../../service/fetcher.service';
 import { MessageService } from '../../service/message.service';
 
+
 @Component({
   selector: 'app-message',
   standalone: true,

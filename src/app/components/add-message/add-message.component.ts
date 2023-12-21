@@ -16,15 +16,16 @@ export class AddMessageComponent {
 
 constructor(private message: MessageService){}
 
-  // inputMessage: MessagePostDTO = {
-  //   content:'',
-  //   timestamp:'',
+  inputMessage: MessagePostDTO = {
+    content:'',
+    timestamp:'',
+    channel: {id:1},
+    user:{id:1},
 
-
-  // }
+  }
 
   addChannel(){
-    // console.log(this.inputMessage);
-    // this.message.addMessage(this.inputMessage).subscribe((rep) => console.log(rep));
+    console.log(this.inputMessage);
+    this.message.addMessage(1,1,this.inputMessage).subscribe((rep) => console.log(rep));
   };
 }

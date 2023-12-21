@@ -1,11 +1,11 @@
 <p>add-message works!</p>
 <form>
     <input
-      content="content"
+      name="content"
       type="text"
       placeholder="Send message..."
 
-      
+      [(ngModel)]="this.inputMessage.content"
       
     />
     
@@ -13,4 +13,4 @@
     <button (click)="this.addChannel()">Send message</button>
   </form>
 
-  <!-- [(ngModel)]="this.inputMessage.content" -->
+ 
