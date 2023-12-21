@@ -8,6 +8,7 @@ import { MessagePostDTO } from '../model/message/messagePostDTO.model';
   providedIn: 'root',
 })
 export class MessageService {
+  messages: MessageDTO[] = [];
   private baseUrl = 'http://localhost:8080/api/channels';
 
   constructor(private http: HttpClient) {}

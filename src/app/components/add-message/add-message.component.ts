@@ -14,7 +14,7 @@ import { MessageService } from '../../service/message.service';
 })
 export class AddMessageComponent {
 
-constructor(private message: MessageService){}
+constructor(private message: MessageService,private fetcherService: FetcherService){}
 
   inputMessage: MessagePostDTO = {
     content:'',
@@ -27,5 +27,7 @@ constructor(private message: MessageService){}
   addChannel(){
     console.log(this.inputMessage);
     this.message.addMessage(1,1,this.inputMessage).subscribe((rep) => console.log(rep));
+    this.fetcherService.loadMessages();
+    this.inputMessage.content = '';
   };
 }

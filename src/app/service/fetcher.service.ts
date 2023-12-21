@@ -4,6 +4,8 @@ import { MessageDTO } from '../model/message/messageDTO.model';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -27,6 +29,11 @@ export class FetcherService {
 
   getChannels() {
     return this.http.get('http://localhost:8080/api/channels');
+  }
+
+  private baseUrl = 'http://localhost:8080/api/channels';
+  getMessagesByChannel(channelId: number): Observable<MessageDTO[]> {
+    return this.http.get<MessageDTO[]>(`${this.baseUrl}/${channelId}/messages`);
   }
 
 

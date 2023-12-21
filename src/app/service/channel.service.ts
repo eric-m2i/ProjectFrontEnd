@@ -9,6 +9,8 @@ import { ChannelPostDTO } from '../model/channel/channelPostDTO.model';
 })
 export class ChannelService {
   private baseUrl = 'http://localhost:8080/api/channels';
+  selectChannel: number = 0;
+  channels: ChannelDTO[] = [];
 
   constructor(private http: HttpClient) {}
 

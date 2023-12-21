@@ -23,6 +23,18 @@ constructor(private channel: ChannelService){}
 
   addChannel(){
     console.log(this.inputChannel);
-    this.channel.createChannel(this.inputChannel).subscribe((rep) => console.log(rep));
+    this.channel.createChannel(this.inputChannel).subscribe(
+      (rep) => {
+        console.log(rep);
+        this.syncChannel();
+        this.inputChannel.name ='';
+        this.inputChannel.description ='';
+      });
   };
+
+  syncChannel(){
+    this.channel.getAllChannels().subscribe((data) => {
+      this.channel.channels = data.sort((a,b)=> a.id - b.id );
+    });
+  }
 }

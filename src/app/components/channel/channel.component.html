@@ -1,12 +1,13 @@
 <!-- <button (click)="onClick()">Channels</button> -->
 <div class="channel">
-    <div *ngFor="let c of Channels">
+    <div *ngFor="let c of this.channel.channels">
         <div class="container">
             <div>
                 <p>{{c.name}}</p>
                 <p>{{c.description}}</p>
             </div>
             <div class="buttons">
+                <button id="editButton" (click)="selectedChannel(c.id)">Select</button>
                 <button id="editButton">?E?</button>
                 <button id="deleteButton"(click)="deleteChannelC(c.id)">delete</button>
             </div>

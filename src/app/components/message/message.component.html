@@ -1,11 +1,27 @@
 <p>message works!</p>
-<div *ngFor="let m of this.message.listMessage">
+<div *ngFor="let m of this.message.messages">
     <div class="container">
         <p>{{m.id}}</p>
+        <p>{{m.user.pseudo}}</p>
         <p>{{m.timestamp}}</p>
         <p>{{m.content}}</p>
-       
+        
+        
+
     </div>
-    
+
 </div>
-<app-add-channel></app-add-channel>
+<p>add-message works!</p>
+<form>
+    <input
+      name="content"
+      type="text"
+      placeholder="Send message..."
+
+      [(ngModel)]="this.inputMessage.content"
+
+    />
+
+
+    <button (click)="this.addMessage()">Send message</button>
+  </form>
