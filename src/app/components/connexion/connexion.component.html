@@ -1,20 +1,57 @@
 <app-header></app-header>
-<div class="container">
-    <h1>Connexion</h1>
-    <div>
-        <form>
-            <p>
-                <label for="pseudo">Pseudo : </label>
-                <input id="pseudo" name="pseudo" type="text" placeholder="pseudo" [(ngModel)]="inputUser.pseudo"
-                    class="form-control" required />
-            </p>
-            <p>
-                <label for="email">Email : </label>
-                <input id="email" name="email" type="text" placeholder="email" [(ngModel)]="inputUser.email"
-                    class="form-control" required />
-            </p>
-            <div><button type="button" class="button" (click)="checkUser()">Connexion</button></div>
-        </form>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Connexion</h1>
+      <form>
+        <div class="form-group">
+          <label for="pseudo1">Pseudo :</label>
+          <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo1" [(ngModel)]="inputUser.pseudo"
+            class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="email1">Email :</label>
+          <input id="email1" name="email1" type="text" placeholder="Email1" [(ngModel)]="inputUser.email"
+            class="form-control" required />
+        </div>
+        <div>
+          <button class="btn btn-primary" (click)="checkUser()">Connexion</button>
+        </div>
+      </form>
     </div>
+
+    <div class="col-md-6 mb-4">
+      <h1>Inscription</h1>
+      <form >
+        <div class="form-group">
+          <label for="prenom">Prénom :</label>
+          <input id="prenom" name="prenom" type="text" placeholder="Prenom" [(ngModel)]="registerUser.prenom"
+            class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom :</label>
+          <input id="nom" name="nom" type="text" placeholder="Nom" [(ngModel)]="registerUser.nom" class="form-control"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email :</label>
+          <input id="email" name="email" type="text" placeholder="Email" [(ngModel)]="registerUser.email"
+            class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="pseudo">Pseudo :</label>
+          <input id="pseudo" name="pseudo" type="text" placeholder="Pseudo" [(ngModel)]="registerUser.pseudo"
+            class="form-control" required />
+        </div>
+        <div>
+          <button type="submit" (click)="regUser()" class="btn btn-success">Inscription</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+<br /><br /><br /><br />
+
 <app-footer></app-footer>
