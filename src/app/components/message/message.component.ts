@@ -42,8 +42,13 @@ export class MessageComponent {
   }
 
   addMessage(){
-    console.log(this.inputMessage);
-    this.inputMessage.user.id = this.userService.user.id;
+    let id:number|undefined = this.userService.user?.id;
+    if (id){
+      this.inputMessage.user.id = id;
+    }else{
+      this.inputMessage.user.id = 0;
+    }
+    // this.inputMessage.user.id = this.userService.user.id;
     this.inputMessage.channel.id = this.channelService.selectChannel;
     this.message.addMessage(this.inputMessage.channel.id,this.inputMessage.user.id,this.inputMessage).subscribe(
       (rep) => {
