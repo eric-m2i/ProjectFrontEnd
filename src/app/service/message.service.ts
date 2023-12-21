@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MessageDTO } from '../model/message/messageDTO.model';
 import { MessagePostDTO } from '../model/message/messagePostDTO.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +15,20 @@ export class MessageService {
   constructor(private http: HttpClient) {}
 
   getMessagesByChannel(channelId: number): Observable<MessageDTO[]> {
-    return this.http.get<MessageDTO[]>(`${this.baseUrl}/${channelId}/messages`);
+    return this.http.get<MessageDTO[]>(`${this.baseUrl}/${channelId}/messages`)
+//      .pipe(
+//        map(messages => messages.map(m => { m.timestamp = this.convertTimestamp(m.timestamp) }))
+//      );
   }
 
   addMessage(channelId: number, userId: number, message: MessagePostDTO): Observable<string> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<string>(`${this.baseUrl}/${channelId}/users/${userId}/messages`,message)
+    return this.http.post<string>(`${this.baseUrl}/${channelId}/users/${userId}/messages`,message);
+  }
+
+  convertTimestamp(timestamp: string): string {
+    const timestampArray = timestamp.split(',').map(Number);
+    const date = new Date(timestampArray[0], timestampArray[1] - 1, timestampArray[2], timestampArray[3], timestampArray[4], timestampArray[5], timestampArray[6] / 1000);
+    return date.toISOString(); // Format ISO 8601
   }
 }

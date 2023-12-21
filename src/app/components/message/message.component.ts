@@ -9,7 +9,6 @@ import { FetcherService } from '../../service/fetcher.service';
 import { MessageService } from '../../service/message.service';
 import { FormsModule } from '@angular/forms';
 import { MessagePostDTO } from '../../model/message/messagePostDTO.model';
-import { DatePipe } from '@angular/common';
 
 
 
@@ -32,7 +31,7 @@ export class MessageComponent {
     console.log(this.fetcherService.listChannel);
     console.log(this.fetcherService.listMessage);
   }
-  constructor(private datePipe: DatePipe,public message: MessageService,private fetcherService: FetcherService,private channelService: ChannelService,private userService: UserService){}
+  constructor(public message: MessageService,private fetcherService: FetcherService,private channelService: ChannelService,private userService: UserService){}
 
   inputMessage: MessagePostDTO = {
     content:'',
@@ -58,21 +57,10 @@ export class MessageComponent {
   recupMessage() {
     this.message.getMessagesByChannel(this.inputMessage.channel.id).subscribe((data: MessageDTO[]) => {
       this.message.messages = data;
-      // this.message.messages.forEach(m => {
-      //   const formattedTimestamp = this.convertTimestamp(m.timestamp);
-      //   if (formattedTimestamp !== null) {
-      //     m.timestamp = formattedTimestamp;
-      //   } else {
-      //     m.timestamp = 'Timestamp invalide';
-      //   }
-      // });
       console.log(data);
     });
   }
   
-  // convertTimestamp(timestamp: string): string|null{
-  //   const timestampArray = timestamp.split(',').map(Number);
-  //   const date = new Date(timestampArray[0], timestampArray[1] - 1, timestampArray[2], timestampArray[3], timestampArray[4], timestampArray[5], timestampArray[6]);
-  //   return this.datePipe.transform(date, 'yyyy-MM-dd HH:mm:ss');
-  // }
+
+  
 }

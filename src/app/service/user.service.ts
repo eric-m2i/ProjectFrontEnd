@@ -28,7 +28,7 @@ export class UserService {
 
   userListeFiltree!: UserDTO[];
 
-  user!: UserDTO ;
+  user!: UserDTO;
 
   loadUsers(userSaisie: UserDTO) {
       this.getAllUsers().subscribe((data: UserDTO[]) => {
