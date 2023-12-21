@@ -4,6 +4,7 @@ import { UserService } from '../../service/user.service';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
+import { UserPostDTO } from '../../model/user/userPostDTO.model';
 
 @Component({
   selector: 'app-connexion',
@@ -25,8 +26,16 @@ export class ConnexionComponent {
     messages: []
   };
 
+  registerUser: UserPostDTO = {nom: '', prenom: '', email: '', pseudo: ''};
+
   checkUser() {
     this.user.loadUsers(this.inputUser);
+  }
+
+  regUser() {
+    this.user.createUser(this.registerUser).subscribe((data: string) => {
+      console.log(data);
+    });
   }
 }
 
