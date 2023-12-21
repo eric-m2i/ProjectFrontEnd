@@ -28,7 +28,7 @@ export class UserService {
 
   userListeFiltree!: UserDTO[];
 
-  user!: UserDTO;
+  user!: UserDTO ;
 
   loadUsers(userSaisie: UserDTO) {
       this.getAllUsers().subscribe((data: UserDTO[]) => {
@@ -40,10 +40,12 @@ export class UserService {
 
   getUserDTO(userSaisie: UserDTO) {
     this.userListeFiltree = this.userListe.filter((userDTO: UserDTO) =>
-      ((userDTO.pseudo === userSaisie.pseudo)));
+      ((userDTO.pseudo === userSaisie.pseudo) && (userDTO.email === userSaisie.email)));
     if (this.userListeFiltree.length > 0) {
       this.user = this.userListeFiltree[0];
       console.log(this.user);
     }
   }
+
+  
 }

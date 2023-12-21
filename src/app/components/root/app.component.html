@@ -1,2 +1,2 @@
-<app-page *ngIf="connexion"></app-page>
-<app-connexion *ngIf="!connexion"></app-connexion>
+<app-page  *ngIf="this.userService.user "></app-page>
+<app-connexion *ngIf="!this.userService.user"></app-connexion>
