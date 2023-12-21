@@ -22,14 +22,15 @@ constructor(private channel: ChannelService){}
   }
 
   addChannel(){
-    console.log(this.inputChannel);
-    this.channel.createChannel(this.inputChannel).subscribe(
-      (rep) => {
-        console.log(rep);
-        this.syncChannel();
-        this.inputChannel.name ='';
-        this.inputChannel.description ='';
-      });
+    if (this.inputChannel.name!='') {
+      this.channel.createChannel(this.inputChannel).subscribe(
+        (rep) => {
+          console.log(rep);
+          this.syncChannel();
+          this.inputChannel.name ='';
+          this.inputChannel.description ='';
+        });
+    }
   };
 
   syncChannel(){

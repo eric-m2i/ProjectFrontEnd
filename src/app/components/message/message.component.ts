@@ -1,7 +1,7 @@
 import { UserService } from './../../service/user.service';
 import { ChannelService } from './../../service/channel.service';
 import { MessageDTO } from './../../model/message/messageDTO.model';
-import { AddMessageComponent } from './../add-message/add-message.component';
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FetcherService } from '../../service/fetcher.service';
@@ -14,7 +14,7 @@ import { MessagePostDTO } from '../../model/message/messagePostDTO.model';
 @Component({
   selector: 'app-message',
   standalone: true,
-  imports: [CommonModule, AddMessageComponent, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './message.component.html',
   styleUrl: './message.component.css'
 })

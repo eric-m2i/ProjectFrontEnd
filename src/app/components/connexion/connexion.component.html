@@ -4,16 +4,16 @@
     <div class="col-md-6  m-auto p-md-5" >
       <form class="animated-border">
       <h2>Connexion</h2>
-        <div class="form-group">
-          <label for="pseudo1">Pseudo :</label>
-          <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo" [(ngModel)]="inputUser.pseudo"
-            class="form-control" required />
-        </div>
-        <div class="form-group">
-          <label for="email1">Email :</label>
-          <input id="email1" name="email1" type="text" placeholder="Email" [(ngModel)]="inputUser.email"
-            class="form-control" required />
-        </div>
+      <div class="form-group">
+        <label for="pseudo1">Pseudo :</label>
+        <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo" [(ngModel)]="inputUser.pseudo"
+          class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="email1">Email :</label>
+        <input id="email1" name="email1" type="text" placeholder="Email" [(ngModel)]="inputUser.email"
+          class="form-control" required />
+      </div>
         <div>
           <button class="btn btn-primary" (click)="checkUser()">Connexion</button>
         </div>
