@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { FetcherService } from '../../service/fetcher.service';
 import { ChannelService } from '../../service/channel.service';
 import { ChannelDTO } from '../../model/channel/channelDTO.model';
+import { AddChannelComponent } from '../add-channel/add-channel.component';
 
 
 @Component({
   selector: 'app-channel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AddChannelComponent],
   templateUrl: './channel.component.html',
   styleUrl: './channel.component.css'
 })

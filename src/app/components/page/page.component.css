@@ -1,5 +1,5 @@
 .contentContainer{
-    height: 80vh;
+    /* height: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,4 +8,15 @@
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
+}
+
+.message{
+    flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+    .contentContainer {
+      flex-direction: column; /* Display items vertically */
+      flex-direction: column-reverse;
+    }
 }

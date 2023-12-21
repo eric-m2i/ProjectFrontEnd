@@ -1,12 +1,14 @@
+import { AddMessageComponent } from './../add-message/add-message.component';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TemplateServiceService } from '../../service/template-service.service';
 import { FetcherService } from '../../service/fetcher.service';
+import { MessageService } from '../../service/message.service';
 
 @Component({
   selector: 'app-message',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AddMessageComponent],
   templateUrl: './message.component.html',
   styleUrl: './message.component.css'
 })

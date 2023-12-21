@@ -10,10 +10,10 @@
     transition: background-color 0.5s ease;
   }
 
-  .navContainer:hover{
+  /* .navContainer:hover{
     background-color: rgba(255,0,0,0.9);
     font-size: xx-large;
-  }
+  } */
   .navContainer {
     position: relative;
     height: 120px;
@@ -33,10 +33,10 @@
     z-index: -1;
   }
   
-  .navContainer:hover::before {
+  /* .navContainer:hover::before {
     opacity: 0;
-    border-radius: 0; /* Change border-radius on hover */
-  }
+    border-radius: 0; 
+  } */
 
 
   p{
