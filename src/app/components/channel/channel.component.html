@@ -1,21 +1,18 @@
-<!-- <button (click)="onClick()">Channels</button> -->
 <div class="channel">
+    <div>
+        <app-add-channel></app-add-channel>
+    </div>
     <div *ngFor="let c of this.channel.channels">
-        <!-- <button id="editButton" (click)="selectedChannel(c.id)"> -->
         <div class="container">
             <div>
                 <p>{{c.name}}</p>
                 <p>{{c.description}}</p>
             </div>
             <div class="buttons" >
-                <button id="editButton" (click)="selectedChannel(c.id)">Select</button>
-                <button id="editButton" *ngIf="c.id>1">?E?</button>
-                <button id="deleteButton" (click)="deleteChannelC(c.id)" *ngIf="c.id>1">delete</button>
+                <button id="selectButton"(click)="selectedChannel(c.id)">Select</button>
+                <button id="editButton" *ngIf="c.id>1">Edit</button>
+                <button id="deleteButton" (click)="deleteChannelC(c.id)" *ngIf="c.id>1">Delete</button>
             </div>
         </div>
-        <!-- </button> -->
-    </div>
-    <div>
-        <app-add-channel></app-add-channel>
     </div>
 </div>

@@ -1,76 +1,60 @@
-.container{
-   
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-    margin: 10px;
-    max-width: 30vw;
-    padding: 5px;
-
-    border-radius: 10px;
-    backdrop-filter: blur (20px);
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 1px 12px rgba(0,0,0,0.25);
-    border: 1px solid rgba(255,255,255,0.3);
-    /* background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%); */
-    transition: background-color 0.5s ease;
-
-    
-    
- 
+.container{  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px;
+  max-width: 30vw;
+  padding: 5px;
+  border-radius: 10px;
+  backdrop-filter: blur (20px);
+  box-shadow: 0 1px 12px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: background-color 0.5s ease;
 }
 
 .container:hover{
-  background-color: rgba(0,255,0,0.5);
+  background-color: rgba(0,255,0,0.2);
 }
 
 .channel{
   border-right: 5px solid rgba(0,0,0,0.5);
-  /* background-color: #e74c3c; */
   padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  max-height: 100%;
-  overflow: scroll;
+  min-height: calc(100vh-150px);
 }
 
 .buttons{
   display: flex;
   flex-direction: column;
-  align-self: center;
-    
+  align-self: center;   
 }
 
 button {
   border: none;
-  padding: 5px 5px;
-  margin: 5px 5px;
+  padding: 1px 5px;
+  margin: 1px 1px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: small;
+  background-color: rgba(0,0,0,0.25);
+  color: rgba(0, 0, 0, 0.5);
 }
 
-/* Style for the first button */
-#editButton {
-  background-color: #1100ff;
-  color: #fff;
+#selectButton:hover {
+  background-color: rgba(0, 255, 0, 0.5);
+  color: rgba(0, 0, 0, 1)
 }
 
-/* Style for the second button */
-#deleteButton {
-  background-color: #000;
-  color: #e74c3c;
-}
-
-/* Hover effect for both buttons */
 #editButton:hover {
-  background-color: yellow; /* Darken the background color on hover */
-  color: #000; /* Change text color on hover */
+  background-color: yellow;
+  color: rgba(0, 0, 0, 1);
 }
 
 #deleteButton:hover {
-  background-color: red; /* Darken the background color on hover */
-  color: #fff; /* Change text color on hover */
+  background-color: rgba(255, 0, 0, 1);
+  color: rgba(255, 255, 255, 1)
 }

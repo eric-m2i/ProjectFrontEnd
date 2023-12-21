@@ -1,13 +1,12 @@
 .contentContainer{
-    /* height: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 10px;
-    background-color: rgba(3, 3, 3, 0.05);
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
+    min-height: calc(100vh-150px);
+    max-height: 100%;
 }
 
 .message{
@@ -16,7 +15,7 @@
 
 @media (max-width: 767px) {
     .contentContainer {
-      flex-direction: column; /* Display items vertically */
+      flex-direction: column;
       flex-direction: column-reverse;
     }
 }
