@@ -1,17 +1,17 @@
 <app-header></app-header>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <h1>Connexion</h1>
+<div class="container-fluid d-md-inline">
+  <div class="row ">
+    <div class="col-md-6 m-auto">
       <form>
+      <h2>Connexion</h2>
         <div class="form-group">
           <label for="pseudo1">Pseudo :</label>
-          <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo1" [(ngModel)]="inputUser.pseudo"
+          <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo" [(ngModel)]="inputUser.pseudo"
             class="form-control" required />
         </div>
         <div class="form-group">
           <label for="email1">Email :</label>
-          <input id="email1" name="email1" type="text" placeholder="Email1" [(ngModel)]="inputUser.email"
+          <input id="email1" name="email1" type="text" placeholder="Email" [(ngModel)]="inputUser.email"
             class="form-control" required />
         </div>
         <div>
@@ -20,9 +20,9 @@
       </form>
     </div>
 
-    <div class="col-md-6 mb-4">
-      <h1>Inscription</h1>
+    <div class="col-md-6">
       <form (ngSubmit)="regUser()">
+      <h2>Inscription</h2>
         <div class="form-group">
           <label for="prenom">Prénom :</label>
           <input id="prenom" name="prenom" type="text" placeholder="Prenom" [(ngModel)]="registerUser.prenom"
@@ -50,7 +50,5 @@
     </div>
   </div>
 </div>
-
-<br /><br /><br /><br />
 
 <app-footer></app-footer>
