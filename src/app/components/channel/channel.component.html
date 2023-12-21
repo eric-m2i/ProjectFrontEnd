@@ -1,18 +1,39 @@
 <div class="channel">
-    <div>
-        <app-add-channel></app-add-channel>
-    </div>
+  <div>
+    <app-add-channel></app-add-channel>
+  </div>
+  <div *ngIf="!edit">
     <div *ngFor="let c of this.channel.channels">
-        <div class="container">
-            <div>
-                <p>{{c.name}}</p>
-                <p>{{c.description}}</p>
-            </div>
-            <div class="buttons" >
-                <button id="selectButton"(click)="selectedChannel(c.id)">Select</button>
-                <button id="editButton" *ngIf="c.id>1">Edit</button>
-                <button id="deleteButton" (click)="deleteChannelC(c.id)" *ngIf="c.id>1">Delete</button>
-            </div>
+      <div class="container">
+        <div>
+          <p>{{c.name}}</p>
+          <p>{{c.description}}</p>
         </div>
+        <div class="buttons">
+          <button id="selectButton" (click)="selectedChannel(c.id)">Select</button>
+          <button id="editButton" (click)="selectedEditChannel(c.id)" *ngIf="c.id>1">Edit</button>
+          <button id="deleteButton" (click)="deleteChannel(c.id)" *ngIf="c.id>1">Delete</button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div>
+  <div class="container" *ngIf="edit">
+    <div>
+      <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input id="nom" name="nom" type="text" placeholder="Nom" [(ngModel)]="editChannelPostDTO.name"
+          class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <input id="description" name="description" type="text" placeholder="Description" [(ngModel)]="editChannelPostDTO.description"
+          class="form-control" required />
+      </div>
+    </div>
+    <div>
+      <button id="patchButton" class="btn alert-info" (click)="selectPatchChannel()">Change Now</button>
+    </div>
+  </div>
 </div>

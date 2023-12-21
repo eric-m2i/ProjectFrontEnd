@@ -1,27 +1,27 @@
 <app-header></app-header>
-<div class="container-fluid d-md-inline">
-  <div class="row ">
-    <div class="col-md-6 m-auto">
-      <form>
+<div class="container-fluid min-vw-100">
+  <div class="row">
+    <div class="col-md-6  m-auto p-md-5" >
+      <form class="animated-border">
       <h2>Connexion</h2>
-        <div class="form-group">
-          <label for="pseudo1">Pseudo :</label>
-          <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo" [(ngModel)]="inputUser.pseudo"
-            class="form-control" required />
-        </div>
-        <div class="form-group">
-          <label for="email1">Email :</label>
-          <input id="email1" name="email1" type="text" placeholder="Email" [(ngModel)]="inputUser.email"
-            class="form-control" required />
-        </div>
+      <div class="form-group">
+        <label for="pseudo1">Pseudo :</label>
+        <input id="pseudo1" name="pseudo1" type="text" placeholder="Pseudo" [(ngModel)]="inputUser.pseudo"
+          class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="email1">Email :</label>
+        <input id="email1" name="email1" type="text" placeholder="Email" [(ngModel)]="inputUser.email"
+          class="form-control" required />
+      </div>
         <div>
           <button class="btn btn-primary" (click)="checkUser()">Connexion</button>
         </div>
       </form>
     </div>
 
-    <div class="col-md-6">
-      <form (ngSubmit)="regUser()">
+    <div class="col-md-6 p-md-5">
+      <form class="animated-border" (ngSubmit)="regUser()">
       <h2>Inscription</h2>
         <div class="form-group">
           <label for="prenom">Prénom :</label>
@@ -45,6 +45,7 @@
         </div>
         <div>
           <button type="submit" class="btn btn-success">Inscription</button>
+          <span *ngIf="registrationSuccess" class="success-message justify-content-center d-flex">Inscription réussie !</span>
         </div>
       </form>
     </div>
