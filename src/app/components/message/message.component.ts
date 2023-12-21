@@ -4,7 +4,6 @@ import { MessageDTO } from './../../model/message/messageDTO.model';
 import { AddMessageComponent } from './../add-message/add-message.component';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { TemplateServiceService } from '../../service/template-service.service';
 import { FetcherService } from '../../service/fetcher.service';
 import { MessageService } from '../../service/message.service';
 import { FormsModule } from '@angular/forms';
@@ -22,39 +21,39 @@ import { MessagePostDTO } from '../../model/message/messagePostDTO.model';
 
 
 export class MessageComponent {
-  ngOnInit(){
+  ngOnInit() {
     this.fetcherService.loadChannels();
-    this.message.getMessagesByChannel(this.inputMessage.channel.id).subscribe((data:MessageDTO[])=>{
+    this.message.getMessagesByChannel(this.inputMessage.channel.id).subscribe((data: MessageDTO[]) => {
       this.message.messages = data;
       console.log(data);
     });
     console.log(this.fetcherService.listChannel);
     console.log(this.fetcherService.listMessage);
   }
-  constructor(public message: MessageService,private fetcherService: FetcherService,private channelService: ChannelService,private userService: UserService){}
+  constructor(public message: MessageService, private fetcherService: FetcherService, private channelService: ChannelService, private userService: UserService) { }
 
   inputMessage: MessagePostDTO = {
-    content:'',
-    timestamp:'',
-    channel: {id:1},
-    user:{id:1},
+    content: '',
+    timestamp: '',
+    channel: { id: 1 },
+    user: { id: 1 },
 
   }
 
-  addMessage(){
-    let id:number|undefined = this.userService.user?.id;
-    if (id){
+  addMessage() {
+    let id: number | undefined = this.userService.user?.id;
+    if (id) {
       this.inputMessage.user.id = id;
-    }else{
+    } else {
       this.inputMessage.user.id = 0;
     }
     // this.inputMessage.user.id = this.userService.user.id;
     this.inputMessage.channel.id = this.channelService.selectChannel;
-    this.message.addMessage(this.inputMessage.channel.id,this.inputMessage.user.id,this.inputMessage).subscribe(
+    this.message.addMessage(this.inputMessage.channel.id, this.inputMessage.user.id, this.inputMessage).subscribe(
       (rep) => {
-      console.log(rep),
-      this.recupMessage()
-    });
+        console.log(rep),
+          this.recupMessage()
+      });
 
     this.inputMessage.content = '';
   };
@@ -65,7 +64,5 @@ export class MessageComponent {
       console.log(data);
     });
   }
-  
 
-  
 }
