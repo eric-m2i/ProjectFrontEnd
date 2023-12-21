@@ -29,6 +29,7 @@ export class FetcherService {
     return this.http.get('http://localhost:8080/api/channels');
   }
 
+
   loadChannels() {
     this.http.get<ChannelDTO[]>('http://localhost:8080/api/channels').subscribe(
       (data) => {
@@ -36,6 +37,7 @@ export class FetcherService {
         console.log(data)
       });
   }
+
 
   getMessages(){
     return this.http.get('http://localhost:8080/api/channels/1/messages');
