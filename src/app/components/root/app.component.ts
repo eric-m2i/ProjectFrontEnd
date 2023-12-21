@@ -14,7 +14,7 @@ import { UserService } from '../../service/user.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'template';
+  title = 'Projet de Certification : One Chat';
   connexion: boolean = false;
 
   constructor(public userService:UserService){};
