@@ -1,17 +1,19 @@
 <p>add-channel works!</p>
-<form>
+<form (ngSubmit)="this.addChannel()">
     <input
       name="name"
       type="text"
       placeholder="Channel name"
       [(ngModel)]="this.inputChannel.name"
-    />
+      required
+    >
     <input
       name="description"
       type="text"
       placeholder="Channel description"
       [(ngModel)]="this.inputChannel.description"
-    />
+      required
+    >
     
-    <button (click)="this.addChannel()">Create Channel</button>
+    <button type="submit">Create Channel</button>
   </form>
