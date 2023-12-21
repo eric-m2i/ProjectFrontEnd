@@ -5,13 +5,14 @@ import { UserService } from '../../service/user.service';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-connexion',
   standalone: true,
   templateUrl: './connexion.component.html',
   styleUrl: './connexion.component.css',
-  imports: [FormsModule, HeaderComponent, FooterComponent]
+  imports: [FormsModule, HeaderComponent, FooterComponent,CommonModule]
 })
 export class ConnexionComponent {
 
@@ -24,6 +25,7 @@ export class ConnexionComponent {
     prenom: 'Eric',
   };
 
+  registrationSuccess:boolean = false;
   registerUser: UserPostDTO = { nom: '', prenom: '', email: '', pseudo: '' };
 
   checkUser() {
@@ -35,6 +37,7 @@ export class ConnexionComponent {
       this.user.createUser(this.registerUser).subscribe((data: string) => {
         console.log(data);
         this.registerUser = { nom: '', prenom: '', email: '', pseudo: '' };
+        this.registrationSuccess = true;
       });
     }
   }
