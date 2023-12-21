@@ -10,7 +10,7 @@ import { UserPostDTO } from '../model/user/userPostDTO.model';
 export class UserService {
   private baseUrl = 'http://localhost:8080/api/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAllUsers(): Observable<UserDTO[]> {
     return this.http.get<UserDTO[]>(`${this.baseUrl}`);
@@ -28,10 +28,11 @@ export class UserService {
 
   userListeFiltree!: UserDTO[];
 
-  user!: UserDTO;
+
+  user!: UserDTO | undefined;// undefined pour la déconnexion
 
   loadUsers(userSaisie: UserDTO) {
-      this.getAllUsers().subscribe((data: UserDTO[]) => {
+    this.getAllUsers().subscribe((data: UserDTO[]) => {
       this.userListe = data;
       this.userListeFiltree = this.userListe;
       this.getUserDTO(userSaisie);
@@ -47,5 +48,5 @@ export class UserService {
     }
   }
 
-  
+
 }
