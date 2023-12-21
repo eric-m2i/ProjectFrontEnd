@@ -1,5 +1,4 @@
 <app-header></app-header>
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
@@ -23,11 +22,11 @@
 
     <div class="col-md-6 mb-4">
       <h1>Inscription</h1>
-      <form >
+      <form (ngSubmit)="regUser()">
         <div class="form-group">
           <label for="prenom">Prénom :</label>
           <input id="prenom" name="prenom" type="text" placeholder="Prenom" [(ngModel)]="registerUser.prenom"
-            class="form-control" required />
+            class="form-control" required/>
         </div>
         <div class="form-group">
           <label for="nom">Nom :</label>
@@ -37,15 +36,15 @@
         <div class="form-group">
           <label for="email">Email :</label>
           <input id="email" name="email" type="text" placeholder="Email" [(ngModel)]="registerUser.email"
-            class="form-control" required />
+            class="form-control" required/>
         </div>
         <div class="form-group">
           <label for="pseudo">Pseudo :</label>
           <input id="pseudo" name="pseudo" type="text" placeholder="Pseudo" [(ngModel)]="registerUser.pseudo"
-            class="form-control" required />
+            class="form-control" required/>
         </div>
         <div>
-          <button type="submit" (click)="regUser()" class="btn btn-success">Inscription</button>
+          <button type="submit" class="btn btn-success">Inscription</button>
         </div>
       </form>
     </div>

@@ -15,18 +15,16 @@ import { UserPostDTO } from '../../model/user/userPostDTO.model';
 })
 export class ConnexionComponent {
 
-  constructor(private user: UserService) { }
 
-  inputUser: UserDTO = {
-    id: 0,
+  constructor(private user: UserService) {
+  }
+
+  inputUser: any = {
     nom: 'Robin',
     prenom: 'Eric',
-    email: '',
-    pseudo: '',
-    messages: []
   };
 
-  registerUser: UserPostDTO = {nom: '', prenom: '', email: '', pseudo: ''};
+  registerUser: UserPostDTO = { nom: '', prenom: '', email: '', pseudo: '' };
 
   checkUser() {
     this.user.loadUsers(this.inputUser);
@@ -35,7 +33,7 @@ export class ConnexionComponent {
   regUser() {
     this.user.createUser(this.registerUser).subscribe((data: string) => {
       console.log(data);
+      this.registerUser = { nom: '', prenom: '', email: '', pseudo: '' };
     });
   }
 }
-
