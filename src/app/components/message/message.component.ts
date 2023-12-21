@@ -25,10 +25,7 @@ export class MessageComponent {
     this.fetcherService.loadChannels();
     this.message.getMessagesByChannel(this.inputMessage.channel.id).subscribe((data: MessageDTO[]) => {
       this.message.messages = data;
-      console.log(data);
     });
-    console.log(this.fetcherService.listChannel);
-    console.log(this.fetcherService.listMessage);
   }
   constructor(public message: MessageService, private fetcherService: FetcherService, private channelService: ChannelService, private userService: UserService) { }
 
@@ -50,9 +47,8 @@ export class MessageComponent {
     // this.inputMessage.user.id = this.userService.user.id;
     this.inputMessage.channel.id = this.channelService.selectChannel;
     this.message.addMessage(this.inputMessage.channel.id, this.inputMessage.user.id, this.inputMessage).subscribe(
-      (rep) => {
-        console.log(rep),
-          this.recupMessage()
+      () => {
+          this.recupMessage();
       });
 
     this.inputMessage.content = '';
@@ -61,7 +57,6 @@ export class MessageComponent {
   recupMessage() {
     this.message.getMessagesByChannel(this.inputMessage.channel.id).subscribe((data: MessageDTO[]) => {
       this.message.messages = data;
-      console.log(data);
     });
   }
 

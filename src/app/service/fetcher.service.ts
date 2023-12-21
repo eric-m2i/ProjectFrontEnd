@@ -23,8 +23,6 @@ export class FetcherService {
   ngOnInit(){
     this.loadChannels();
     this.loadMessages();
-    console.log(this.listChannel);
-    console.log(this.listMessage);
   }
 
   getChannels() {
@@ -41,7 +39,6 @@ export class FetcherService {
     this.http.get<ChannelDTO[]>('http://localhost:8080/api/channels').subscribe(
       (data) => {
         this.listChannel = data;
-        console.log(data)
       });
   }
 
@@ -49,12 +46,12 @@ export class FetcherService {
   getMessages(){
     return this.http.get('http://localhost:8080/api/channels/1/messages');
   }
-  
+
   loadMessages(){
     this.http.get<MessageDTO[]>('http://localhost:8080/api/channels/1/messages').subscribe(
     (data)=>{
       this.listMessage=data;
-       console.log(data)});
+      });
     }
 
 }

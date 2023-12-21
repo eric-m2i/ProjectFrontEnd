@@ -23,7 +23,6 @@ export class ChannelService {
   }
 
   createChannel(channelNew: ChannelPostDTO): Observable<string> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<string>(`${this.baseUrl}`, channelNew);
   }
 
