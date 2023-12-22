@@ -9,7 +9,7 @@ import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-page',
   standalone: true,
-  imports: [HeaderComponent, ChannelComponent,  FooterComponent, MessageComponent],
+  imports: [FooterComponent,HeaderComponent, ChannelComponent,  FooterComponent, MessageComponent],
   templateUrl: './page.component.html',
   styleUrl: './page.component.css'
 })
