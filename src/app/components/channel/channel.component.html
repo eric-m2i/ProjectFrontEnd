@@ -10,9 +10,9 @@
           <p class="channelDescription">{{c.description}}</p>
         </div>
         <div class="buttons">
-          <button id="selectButton" (click)="selectedChannel(c.id)">Select</button>
-          <button id="editButton" (click)="selectedEditChannel(c.id)" *ngIf="c.id>1">Edit</button>
-          <button id="deleteButton" (click)="deleteChannel(c.id)" *ngIf="c.id>1">Delete</button>
+          <button id="selectButton" (click)="selectedChannel(c.id)">Select.</button>
+          <button id="editButton" (click)="selectedEditChannel(c.id)" *ngIf="c.id>1">Modifier</button>
+          <button id="deleteButton" (click)="deleteChannel(c.id)" *ngIf="c.id>1">Suppr.</button>
         </div>
       </div>
     </div>

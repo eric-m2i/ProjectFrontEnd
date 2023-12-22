@@ -1,16 +1,16 @@
 <form (ngSubmit)="this.addChannel()">
-  <button type="submit">Create Channel</button>
+  <button type="submit">Créer chaine</button>
   <input
     name="name"
     type="text"
-    placeholder="Channel name"
+    placeholder="Nouvelle chaine"
     [(ngModel)]="this.inputChannel.name"
     required
   >
   <input
     name="description"
     type="text"
-    placeholder="Channel description"
+    placeholder="Description de la chaine"
     [(ngModel)]="this.inputChannel.description"
     required
   >
