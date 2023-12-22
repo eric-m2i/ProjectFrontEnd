@@ -1,7 +1,8 @@
 .navContainer {
     height: 10vh;
-    /* position: fixed;
-    bottom: 0; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     border-radius: 10px;
     backdrop-filter: blur (20px);
     background-color: rgba(244, 51, 105, 0.605);
@@ -20,6 +21,7 @@
   .logo {
     height: 60px;
     width: 60px;
+    border-radius: 5px;
   }
 
   p{
