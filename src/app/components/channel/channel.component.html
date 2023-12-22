@@ -6,8 +6,8 @@
     <div *ngFor="let c of this.channel.channels">
       <div class="container">
         <div>
-          <p>{{c.name}}</p>
-          <p>{{c.description}}</p>
+          <p class="channelName">{{c.name}}</p>
+          <p class="channelDescription">{{c.description}}</p>
         </div>
         <div class="buttons">
           <button id="selectButton" (click)="selectedChannel(c.id)">Select</button>

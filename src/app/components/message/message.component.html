@@ -1,8 +1,8 @@
 <div *ngFor="let m of this.message.messages">
     <div class="container">
         <div class="timeAndName">
-          <p class="time">{{m.timestamp[2]}}/{{m.timestamp[1]}}/{{m.timestamp[0]}} {{m.timestamp[3]}}h{{m.timestamp[4]}}m</p>
-          <p class="userName">{{m.user.pseudo}}:</p>
+          <p class="timeAndName">{{m.timestamp[2]}}/{{m.timestamp[1]}}/{{m.timestamp[0]}} {{m.timestamp[3]}}h{{m.timestamp[4]}}m {{m.user.pseudo}}:</p>
+          <!-- <p class="userName">{{m.user.pseudo}}:</p> -->
         </div>
         <div class="message">
         <p>{{m.content}}</p>

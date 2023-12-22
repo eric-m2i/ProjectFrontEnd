@@ -76,11 +76,12 @@ button:hover {
   border-color: rgb(255, 255, 255);
 }
 
-.time{
+.timeAndName{
   font-size: small;
   font-style: italic;
 }
 .message{
+  padding: 5px;
   overflow: hidden;
   white-space: pre-line;
   word-wrap: break-word;
