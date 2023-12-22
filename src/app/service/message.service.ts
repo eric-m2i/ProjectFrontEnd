@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MessageDTO } from '../model/message/messageDTO.model';
 import { MessagePostDTO } from '../model/message/messagePostDTO.model';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +18,6 @@ export class MessageService {
     }
 
   addMessage(channelId: number, userId: number, message: MessagePostDTO): Observable<string> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<string>(`${this.baseUrl}/${channelId}/users/${userId}/messages`,message);
   }
 

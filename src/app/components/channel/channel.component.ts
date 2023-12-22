@@ -24,6 +24,7 @@ export class ChannelComponent {
   ngOnInit() {
     this.channel.getAllChannels().subscribe((data) => {
       this.channel.channels = data.sort((a, b) => a.id - b.id);
+      this.selectedChannel(1);
     });
   }
 
@@ -42,7 +43,6 @@ export class ChannelComponent {
 
   selectedChannel(channelId: number) {
     this.channel.getChannelById(channelId).subscribe(() => {
-      this.messageService;
       this.channel.selectChannel = channelId;
       this.recupMessage(channelId);
     })
@@ -51,25 +51,27 @@ export class ChannelComponent {
   recupMessage(channelId: number) {
     this.messageService.getMessagesByChannel(channelId).subscribe((data: MessageDTO[]) => {
       this.messageService.messages = data;
-      console.log(data);
     });
   }
 
   edit: boolean = false;
   editChannel!: ChannelDTO;
+  editChannelPostDTO: any = { name: '', description: '' };
   selectedEditChannel(channelId: number) {
     this.channel.getChannelById(channelId).subscribe((data) => {
       this.editChannel = data;
+      this.editChannelPostDTO.name = this.editChannel.name;
+      this.editChannelPostDTO.description = this.editChannel.description;
       this.edit = true;
     })
   }
-  editChannelPostDTO: any = { name: '', description: '' };
   selectPatchChannel() {
     if (this.editChannelPostDTO.name!='') {
       this.channel.patchChannel(this.editChannel.id, this.editChannelPostDTO)
         .subscribe(() => {
           this.syncChannel();
           this.edit = false;
+          this.recupMessage(this.editChannel.id);
         });
     }
   }
